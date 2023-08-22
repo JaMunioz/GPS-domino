@@ -1,10 +1,10 @@
 #Generar una lista de listas (matriz) con las 28 fichas posibles.
 def generar_fichas():
-    ...
-    #  el return queda algo asi.. [[1,1],[1,2], ..., [6,6]]
-
-
-
+    fichas = []
+    for i in range(7):
+        for j in range(i, 7):
+            fichas.append([i, j])
+    return fichas
 
 #Se reparten las fichas a los "n" jugadores, Todo jugador posee la misma 
 # cantidad de fichas, en caso de que sobren fichas quedan en el mazo base.
@@ -24,9 +24,6 @@ def repartir_fichas(n):
 # La funcion "repartir_fichas(n):" retorna el diccionario final, con las fichas
 # repartidas.
 
-
-
-
 # Se recorrera el diccionario de jugadores con sus respectivas manos, 
 # donde se determinara quien tiene el chancho mayor.
 # siendo los siguientes los chanchos.. [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6]]
@@ -35,3 +32,11 @@ def determinar_jugador_inicial():
     #return "j1", o "j2", ..., "jn"
     # Es decir, se retorna el string que representa a la llave del diccioanrio
     #  del jugador que comienza
+
+# Como generar las fichas - Rafael P
+"""
+fichas = generar_fichas()
+for ficha in fichas:
+    print(ficha)
+"""
+
