@@ -1,3 +1,5 @@
+import random
+
 #Generar una lista de listas (matriz) con las 28 fichas posibles.
 def generar_fichas():
     fichas = []
@@ -8,21 +10,22 @@ def generar_fichas():
 
 #Se reparten las fichas a los "n" jugadores, Todo jugador posee la misma 
 # cantidad de fichas, en caso de que sobren fichas quedan en el mazo base.
-def repartir_fichas(n):
-    #Diccionario con las fichas de cada jugador, cada llave del diccionario
-    # sera: jn, siendo "n" el numero respectivo del jugador..  
-    # EJEMPLO para un juego de 7 jugadores: 
-    # { j1:[[1,3], [2,5], [3,4], [2,2]], ..., j7:[[1,2], ..., [6,6]] }
-    jugadores = {}
+def repartir_fichas(cantidad_jugadores):
+    if cantidad_jugadores < 2 or cantidad_jugadores > 14:
+        raise ValueError("La cantidad de jugadores debe estar entre 2 y 14.")
 
-    fichas = generar_fichas()
-    for i in range(n):
-        #En teoria se crearian las llaves de cada jugadore, recibiendo un valor
-        #  una lista que es su mano.
-        jugadores["j"+str(i+1)] = ... #[[1,3], [2,5], [3,4], [2,2]]
-    ...
-# La funcion "repartir_fichas(n):" retorna el diccionario final, con las fichas
-# repartidas.
+    fichas = generar_fichas()  
+    random.shuffle(fichas)
+    
+    mano_jugadores = {}
+    fichas_por_jugador = len(fichas) // cantidad_jugadores
+    
+    for i in range(cantidad_jugadores):
+        inicio = i * fichas_por_jugador
+        fin = inicio + fichas_por_jugador
+        mano_jugadores[f"Jugador {i+1}"] = fichas[inicio:fin]
+    
+    return mano_jugadores
 
 # Se recorrera el diccionario de jugadores con sus respectivas manos, 
 # donde se determinara quien tiene el chancho mayor.
@@ -33,10 +36,19 @@ def determinar_jugador_inicial():
     # Es decir, se retorna el string que representa a la llave del diccioanrio
     #  del jugador que comienza
 
-# Como generar las fichas - Rafael P
-"""
+
+""" #Como generar las fichas - Rafael P
 fichas = generar_fichas()
 for ficha in fichas:
     print(ficha)
 """
+
+"""#Como repartir las fichas a los jugadores - Rafael P
+cantidad_jugadores = 5
+jugadores_y_fichas = repartir_fichas(cantidad_jugadores)
+
+for jugador, fichas in jugadores_y_fichas.items():
+    print(f"{jugador}: {fichas}")
+"""
+
 
