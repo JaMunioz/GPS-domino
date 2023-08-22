@@ -26,6 +26,7 @@ fichas_jugadas = [] # es una lista donde estan toda la fila de fichas jugadas,
                     # se agregan las fichas al inicio, o final de la lista..
                     # recuerda que una ficha es lo siguiente: [nº1,nº2]
 ganador = None
+es_empate = 0
 while True:
     for i in orden_de_jugadores:
         print(f"{jugando(i)}, esta jugando..")
@@ -39,18 +40,28 @@ while True:
             if ficha_a_jugar != None:
                 fichas_jugadas = jugar_ficha_al_mazo(fichas_jugadas, ficha_a_jugar)
         if ficha_a_jugar != None:
+            es_empate = 0
             print(f"Se jugó lo siguiente: {mostrar_fichas([ficha_a_jugar])}")
             jugadores[i].remove(ficha_a_jugar)
             if len(jugadores[i]) == 0:
                 ganador = i
                 break
         else:
+            es_empate += 1
             print("El jugador no tiene nada en la mano para jugar.")
+            if es_empate == cantidad_jugadores:
+                es_empate = True
+                break
         print("\nLas siguientes fichas estan en mesa..")
         mostrar_fichas(fichas_jugadas)
         siguiente_jugada()
+    
     if ganador != None:
+        print(f"\n¡El {jugando(ganador)} es el ganador de esta partida!")
+        break
+    elif es_empate:
+        print(f"\n¡Ningún jugador es el ganador de esta partida!")
         break
 
-print(f"\n¡El {jugando(ganador)} es el ganador de esta partida!")
+
 
