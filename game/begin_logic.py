@@ -23,7 +23,7 @@ def repartir_fichas(cantidad_jugadores):
     for i in range(cantidad_jugadores):
         inicio = i * fichas_por_jugador
         fin = inicio + fichas_por_jugador
-        mano_jugadores[f"Jugador {i+1}"] = fichas[inicio:fin]
+        mano_jugadores[f"j{i+1}"] = fichas[inicio:fin]
     
     return mano_jugadores
 
@@ -43,12 +43,12 @@ for ficha in fichas:
     print(ficha)
 """
 
-"""#Como repartir las fichas a los jugadores - Rafael P
+#Como repartir las fichas a los jugadores - Rafael P
 cantidad_jugadores = 5
 jugadores_y_fichas = repartir_fichas(cantidad_jugadores)
 
 for jugador, fichas in jugadores_y_fichas.items():
     print(f"{jugador}: {fichas}")
-"""
+
 
 
