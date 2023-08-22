@@ -11,10 +11,11 @@ while True:
 
 """
 Descomente las siguientes 3 lineas, cuando begin_logic.py este completo, y 
-borre las otras 2 siguientes del comentario que indica el FAKE DATA..
+orden_de_jugadores en in_game_logic.py este completado, ademas recuerde que
+debe borrar las otras 2 siguientes del comentario que indica el FAKE DATA..
 """
 #jugadores = repartir_fichas(cantidad_jugadores)
-#jugador_inicial = determinar_jugador_inicial()
+#jugador_inicial = determinar_jugador_inicial(jugadores)
 #orden_de_jugadores = generar_lista_de_jugadores(jugador_inicial)
 #FAKE DATA (Tengo mas que claro que la cantidad de fichas del fake data no son)
 jugadores = {"j1":[[6,6],[1,3],[1,6]],"j2":[[4,4],[1,2],[5,6]],"j3":[[4,1],[6,2],[1,5]]}
