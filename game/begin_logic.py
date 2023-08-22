@@ -30,25 +30,31 @@ def repartir_fichas(cantidad_jugadores):
 # Se recorrera el diccionario de jugadores con sus respectivas manos, 
 # donde se determinara quien tiene el chancho mayor.
 # siendo los siguientes los chanchos.. [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6]]
-def determinar_jugador_inicial():
-    ...
-    #return "j1", o "j2", ..., "jn"
-    # Es decir, se retorna el string que representa a la llave del diccioanrio
-    #  del jugador que comienza
+def determinar_jugador_inicial(jugadores_fichas):
+    chancho_mas_alto = -1
+    jugador_chancho_mayor = None
+    
+    for jugador, fichas in jugadores_fichas.items():
+        for ficha in fichas:
+            if ficha[0] == ficha[1] and ficha[0] > chancho_mas_alto:
+                chancho_mas_alto = ficha[0]
+                jugador_chancho_mayor = jugador
+    
+    return jugador_chancho_mayor
 
-
-""" #Como generar las fichas - Rafael P
-fichas = generar_fichas()
-for ficha in fichas:
-    print(ficha)
 """
-
 #Como repartir las fichas a los jugadores - Rafael P
 cantidad_jugadores = 5
-jugadores_y_fichas = repartir_fichas(cantidad_jugadores)
+jugadores_fichas = repartir_fichas(cantidad_jugadores)
 
-for jugador, fichas in jugadores_y_fichas.items():
+for jugador, fichas in jugadores_fichas.items():
     print(f"{jugador}: {fichas}")
+
+# Llamada a la función para determinar el jugador que parte - Rafael P
+jugador_parte = determinar_jugador_inicial(jugadores_fichas)
+print(f"El jugador que parte es: {jugador_parte}")
+"""
+
 
 
 
