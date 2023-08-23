@@ -5,6 +5,8 @@ de chancho que tenga mayor valor
 ejemplos de inputs..
 mano_del_jugador: [[1,2], [5,6], [6,6]]
 """
+
+
 def elegir_chancho(mano_del_jugador):
     sum_chancho = 0
     ficha_elegida = None
