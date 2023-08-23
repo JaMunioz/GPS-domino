@@ -37,9 +37,9 @@ while True:
             fichas_jugadas.append(ficha_a_jugar)
         else:
             ficha_a_jugar = elegir_ficha(fichas_jugadas, jugadores[i])
-            if ficha_a_jugar != None:
+            if ficha_a_jugar is not None:
                 fichas_jugadas = jugar_ficha_al_mazo(fichas_jugadas, ficha_a_jugar)
-        if ficha_a_jugar != None:
+        if ficha_a_jugar is not None:
             es_empate = 0
             print(f"Se jugó lo siguiente: {ficha_a_jugar}")
             jugadores[i].remove(ficha_a_jugar)
@@ -56,9 +56,9 @@ while True:
         mostrar_fichas(fichas_jugadas)
         siguiente_jugada()
 
-    if ganador != None:
+    if ganador is not None:
         print(f"\n¡El {jugando(ganador)} es el ganador de esta partida!")
         break
     elif es_empate:
-        print(f"\n¡Ningún jugador es el ganador de esta partida!")
+        print("\n¡Ningún jugador es el ganador de esta partida!")
         break
