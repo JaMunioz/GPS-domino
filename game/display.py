@@ -23,6 +23,6 @@ def jugando(jn):
     return jn_to_string[jn]
 
 def siguiente_jugada():
-    print("\nPresiona una tecla para continuar...", end="", flush=True)
+    print("\n\nPresiona una tecla para continuar...", end="", flush=True)
     msvcrt.getch()
     print("\n")

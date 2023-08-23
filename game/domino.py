@@ -4,10 +4,13 @@ from in_game_logic import *
 from first_move import *
 
 while True:
-    cantidad_jugadores = int(input("Indique la cantidad de jugadores: "))
-    if cantidad_jugadores > 1 and cantidad_jugadores < 15:
-        break
-    print("La cantidad no es valida")
+    try:
+        cantidad_jugadores = int(input("Indique la cantidad de jugadores: "))
+        if cantidad_jugadores > 1 and cantidad_jugadores < 15:
+            break
+        print("La cantidad no es valida")
+    except:
+        print("No ingreso un valor numerico")
 
 """
 Descomente las siguientes 3 lineas, cuando begin_logic.py este completo, y 
@@ -17,9 +20,6 @@ debe borrar las otras 2 siguientes del comentario que indica el FAKE DATA..
 jugadores = repartir_fichas(cantidad_jugadores)
 jugador_inicial = determinar_jugador_inicial(jugadores)
 orden_de_jugadores = generar_lista_de_jugadores(jugador_inicial, cantidad_jugadores)
-#FAKE DATA (Tengo mas que claro que la cantidad de fichas del fake data no son)
-# jugadores = {"j1":[[6,6],[1,3],[1,6]],"j2":[[4,4],[1,2],[5,6]],"j3":[[4,1],[6,2],[1,5]]}
-# orden_de_jugadores = ["j3","j1","j2"]
 
 print()
 fichas_jugadas = [] # es una lista donde estan toda la fila de fichas jugadas,
@@ -41,18 +41,18 @@ while True:
                 fichas_jugadas = jugar_ficha_al_mazo(fichas_jugadas, ficha_a_jugar)
         if ficha_a_jugar != None:
             es_empate = 0
-            print(f"Se jugó lo siguiente: {ficha_a_jugar}")
+            print(f"\nSe jugó lo siguiente: {ficha_a_jugar}")
             jugadores[i].remove(ficha_a_jugar)
             if len(jugadores[i]) == 0:
                 ganador = i
                 break
         else:
             es_empate += 1
-            print("El jugador no tiene nada en la mano para jugar.")
+            print("\nEl jugador no tiene nada en la mano para jugar.")
             if es_empate == cantidad_jugadores:
                 es_empate = True
                 break
-        print("\nLas siguientes fichas estan en mesa..")
+        print("\nEste es el nuevo estado actual de la mesa..")
         mostrar_fichas(fichas_jugadas)
         siguiente_jugada()
     
