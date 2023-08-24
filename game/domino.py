@@ -55,14 +55,14 @@ def domino_game(cantidad_jugadores):
                     fichas_jugadas = jugar_ficha_al_mazo(fichas_jugadas, ficha_a_jugar)
             if ficha_a_jugar is not None:
                 es_empate = 0
-                print(f"Se jugó lo siguiente: {ficha_a_jugar}")
+                print(f"\nSe jugó lo siguiente: {ficha_a_jugar}")
                 jugadores[i].remove(ficha_a_jugar)
                 if len(jugadores[i]) == 0:
                     ganador = i
                     break
             else:
                 es_empate += 1
-                print("El jugador no tiene nada en la mano para jugar.")
+                print("\nEl jugador no tiene nada en la mano para jugar.")
                 if es_empate == cantidad_jugadores:
                     es_empate = True
                     break
