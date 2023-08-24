@@ -6,7 +6,7 @@ AQUI SE REALIZARAN LOS TEST AL DOMINO
 
 import unittest
 from unittest.mock import patch
-from domino_refactor import parse_players
+from domino import parse_players
 from begin_logic import repartir_fichas, determinar_jugador_inicial
 
 
