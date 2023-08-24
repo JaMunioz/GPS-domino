@@ -52,6 +52,15 @@ def determinar_jugador_inicial(jugadores_fichas):
     return jugador_chancho_mayor
 
 
+def ficha_mas_alta(fichas):
+    suma_mas_alta = -1
+    for ficha in fichas:
+        if sum(ficha) > suma_mas_alta:
+            suma_mas_alta = sum(ficha)
+            ficha_mas_alta = ficha
+    return ficha_mas_alta
+
+
 """
 #Como repartir las fichas a los jugadores - Rafael P
 cantidad_jugadores = 5
