@@ -19,3 +19,10 @@ def elegir_chancho(mano_del_jugador):
     return ficha_elegida
     # el return aqui devuelve la lista que representa la ficha que es mayor
     # chancho, ejemplo: [6, 6]
+
+
+def tiene_chancho(mano_del_jugador):
+    for ficha in mano_del_jugador:
+        if len(set(ficha)) == 1:
+            return True
+    return False
