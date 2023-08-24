@@ -43,6 +43,12 @@ def determinar_jugador_inicial(jugadores_fichas):
                 chancho_mas_alto = ficha[0]
                 jugador_chancho_mayor = jugador
 
+    if jugador_chancho_mayor is None:
+        for jugador, fichas in jugadores_fichas.items():
+            for ficha in fichas:
+                if sum(ficha) > chancho_mas_alto:
+                    chancho_mas_alto = sum(ficha)
+                    jugador_chancho_mayor = jugador
     return jugador_chancho_mayor
 
 
