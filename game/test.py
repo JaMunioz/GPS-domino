@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 from domino import parse_players
 from begin_logic import repartir_fichas, determinar_jugador_inicial
+from display import wait
 
 
 class TestDomino(unittest.TestCase):
@@ -150,7 +151,7 @@ class TestDomino(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
-
+    unittest.main(exit=False)
+    wait("Presiona una tecla para cerrar los tests...")
 
 "Tests written and saved to test_refactored.py"

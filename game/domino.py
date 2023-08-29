@@ -1,7 +1,8 @@
-from display import jugando, siguiente_jugada
+from display import jugando
 from begin_logic import determinar_jugador_inicial, repartir_fichas
 from begin_logic import ficha_mas_alta
 from first_move import tiene_chancho
+from display import wait
 from in_game_logic import (
     elegir_ficha,
     mostrar_fichas,
@@ -68,7 +69,7 @@ def domino_game(cantidad_jugadores):
                     break
             print("\nLas siguientes fichas estan en mesa..")
             mostrar_fichas(fichas_jugadas)
-            siguiente_jugada()
+            wait("Presiona una tecla para continuar...")
 
         if ganador is not None:
             print(f"\n¡El {jugando(ganador)} es el ganador de esta partida!")
@@ -82,3 +83,4 @@ if __name__ == "__main__":
     user_input = input("Indique la cantidad de jugadores: ")
     cantidad_jugadores = parse_players(user_input)
     domino_game(cantidad_jugadores)
+    wait("Presiona una tecla cerrar el programa...")

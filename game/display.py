@@ -28,8 +28,8 @@ def jugando(jn):
     return jn_to_string[jn]
 
 
-def siguiente_jugada():
-    print("\n\nPresiona una tecla para continuar...", end="", flush=True)
+def wait(text):
+    print(f"\n\n{text}", end="", flush=True)
     if platform.system() == "Windows":
         os.system("pause >nul")
     else:
