@@ -135,19 +135,14 @@ class TestDomino(unittest.TestCase):
 
     def test_determinar_jugador_inicial_sin_chancho(self):
         fichas = {
-            "j1": [[0, 5], [1, 6]],
-            "j2": [[1, 6], [3, 4]],
-            "j3": [[3, 4], [0, 2]],
-            "j4": [[0, 2], [2, 6]],
-            "j5": [[2, 6], [1, 2]],
-            "j6": [[1, 2], [2, 5]],
-            "j7": [[2, 5], [1, 3]],
-            "j8": [[1, 3], [0, 1]],
-            "j9": [[0, 1], [3, 5]],
-            "j10": [[3, 5], [2, 4]],
+            "j1": [[6, 5], [2, 4]],
+            "j2": [[1, 5], [0, 2]],
+            "j3": [[2, 5], [1, 2]],
+            "j4": [[0, 1], [3, 0]],
+            "j5": [[0, 4], [1, 6]],
         }
         initial_player = determinar_jugador_inicial(fichas)
-        self.assertIn(initial_player, fichas)
+        self.assertEqual(initial_player, "j1")
 
 
 if __name__ == "__main__":
